@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful JavaScript Basics</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f7f7f7;
+        }
+
+        h1, h2 {
+            color: #3498db;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        #result {
+            font-size: 18px;
+            color: #e74c3c;
+        }
+
+        #colorChangeButton {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        #colorChangeButton:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Colorful JavaScript Basics</h1>
+
+    <!-- Task 1: Button Color Change -->
+    <button id="colorChangeButton" onclick="changeColor()">Click me to change color</button>
+
+    <!-- Task 2: Greeting Message -->
+    <script>
+        // Get current hour
+        var currentHour = new Date().getHours();
+
+        // Display greeting message based on the time
+        var greetingMessage = "";
+        if (currentHour < 12) {
+            greetingMessage = "Good morning!";
+        } else if (currentHour < 18) {
+            greetingMessage = "Good afternoon!";
+        } else {
+            greetingMessage = "Good evening!";
+        }
+
+        // Show alert with the greeting message
+        alert(greetingMessage);
+    </script>
+
+    <!-- Task 3: Basic Calculator -->
+    <h2>Colorful Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="calculate()">Add</button>
+
+    <p id="result">Result: </p>
+
+    <script>
+        // Function to change button color
+        function changeColor() {
+            var button = document.getElementById("colorChangeButton");
+            // Generate a random color
+            var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            // Change button background color
+            button.style.backgroundColor = randomColor;
+        }
+
+        // Function to perform addition
+        function calculate() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            
+            // Check if both inputs are numbers
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var result = num1 + num2;
+
+                // Display result
+                document.getElementById("result").textContent = "Result: " + result;
+            } else {
+                alert("Please enter valid numbers for calculation.");
+            }
+        }
+    </script>
+
+</body>
+</html>

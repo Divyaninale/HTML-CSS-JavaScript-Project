@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Image Gallery and Slideshow</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .thumbnail {
+            width: 120px;
+            height: 120px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border: 5px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .slideshow {
+            display: none;
+            width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+            border: 5px solid #4CAF50;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .slideshow img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            animation: fade 1.5s infinite;
+        }
+
+        @keyframes fade {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Colorful Image Gallery and Slideshow</h1>
+
+    <!-- Image Gallery -->
+    <div class="gallery">
+        <img class="thumbnail" src="img1.jpeg" onclick="openLightbox('img1.jpeg')" alt="Image 1">
+        <img class="thumbnail" src="img2.jpeg" onclick="openLightbox('img2.jpeg')" alt="Image 2">
+        <img class="thumbnail" src="img3.jpeg" onclick="openLightbox('img3.jpeg')" alt="Image 3">
+        <img class="thumbnail" src="img4.jpeg" onclick="openLightbox('img4.jpeg')" alt="Image 4">
+        <img class="thumbnail" src="img5.jpeg" onclick="openLightbox('img5.jpeg')" alt="Image 5">
+        <img class="thumbnail" src="img6.jpeg" onclick="openLightbox('img6.jpeg')" alt="Image 6">
+        <img class="thumbnail" src="img7.jpeg" onclick="openLightbox('img7.jpeg')" alt="Image 7">
+        <img class="thumbnail" src="img8.jpeg" onclick="openLightbox('img8.jpeg')" alt="Image 8">
+        <img class="thumbnail" src="img9.jpeg" onclick="openLightbox('img9.jpeg')" alt="Image 9">
+        <img class="thumbnail" src="img10.jpeg" onclick="openLightbox('img10.jpeg')" alt="Image 10">
+    </div>
+
+    <!-- Lightbox for Enlarged Images -->
+    <div class="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImage" src="" alt="Enlarged Image">
+    </div>
+
+    <!-- Image Slideshow -->
+    <div class="slideshow">
+        <img src="img1.jpeg" alt="Slideshow Image 1">
+        <img src="img2.jpeg" alt="Slideshow Image 2">
+        <img src="img3.jpeg" alt="Slideshow Image 3">
+        <img src="img4.jpeg" alt="Slideshow Image 4">
+        <img src="img5.jpeg" alt="Slideshow Image 5">
+        <img src="img6.jpeg" alt="Slideshow Image 6">
+        <img src="img7.jpeg" alt="Slideshow Image 7">
+        <img src="img8.jpeg" alt="Slideshow Image 8">
+        <img src="img9.jpeg" alt="Slideshow Image 9">
+        <img src="img10.jpeg" alt="Slideshow Image 10">
+    </div>
+
+    <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightboxImage').src = imageSrc;
+            document.querySelector('.lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.querySelector('.lightbox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
